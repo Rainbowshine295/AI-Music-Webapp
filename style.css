@@ -1,0 +1,16 @@
+.heading {
+    font-size: 20px;
+    width: 100%;
+    margin: 0px;
+    white-space: normal;
+}
+
+body {
+    background-color: #8AA8D4;
+    background-image: url("music 2.png");
+    font-family: 'Nunito', sans-serif;
+}
+
+canvas {
+    border: 5px #286090 dashed;
+}
