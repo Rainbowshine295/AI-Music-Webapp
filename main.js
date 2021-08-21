@@ -1,6 +1,11 @@
 song1 = "";
 song2 = "";
 
+song1_status = "";
+song2_status = "";
+
+scoreLeftWrist = 0;
+
 leftWristX = 0;
 leftWristY = 0;
 
@@ -42,6 +47,9 @@ function gotPoses(results) {
     if (results.length > 0) {
         console.log(results);
 
+        scoreLeftWrist = results[0].pose.keypoints[9].score;
+        console.log("score left wrist  = " + scoreLeftWrist);
+
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
         console.log("Left wrist x = " + leftWristX + " Left wrist y = " + leftWristY);
@@ -54,4 +62,23 @@ function gotPoses(results) {
 
 function draw() {
     image(video, 0, 0, 600, 450);
+
+    fill("#EF5048");
+	stroke("#EF5048");
+
+    song1_status = song1.isPlaying();
+
+    if(scoreLeftWrist > 0.2)
+	{
+		circle(leftWristX,leftWristY,30);
+
+			song2.stop();
+
+		if(song2_status == false)
+		{
+			song1.play();
+			document.getElementById("song").innerHTML = "Playing - Awesome As I Wanna Be"
+		}
+	}
+
 }
