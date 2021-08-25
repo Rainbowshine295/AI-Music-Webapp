@@ -5,6 +5,7 @@ song1_status = "";
 song2_status = "";
 
 scoreLeftWrist = 0;
+scoreRightWrist = 0;
 
 leftWristX = 0;
 leftWristY = 0;
@@ -77,8 +78,19 @@ function draw() {
 		if(song2_status == false)
 		{
 			song1.play();
-			document.getElementById("song").innerHTML = "Playing - Awesome As I Wanna Be"
+			document.getElementById("song_name").innerHTML = "Playing - Awesome As I Wanna Be";
 		}
 	}
+    if(scoreRightWrist > 0.2)
+	{ 
+		circle(rightWristX,rightWristY,20);
 
+			song2.stop();
+
+		if(song1_status == false)
+		{
+			song1.play();
+			document.getElementById("song_name").innerHTML = "Playing - My Past is Not Today";
+		}
+	}
 }
